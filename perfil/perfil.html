@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="perfil.css">
+    <script type="module" src="perfilItens.js"></script>
+    <script type="module" src="perfil.js"></script>
+    <script type="module" src="../entrar/auth.js"></script>
+    <title>Perfil | Wayback</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.glitch.global/8ff313da-1dcc-45d6-8163-d9dda5d323f1/favicon-32x32.png?v=1744744460894">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+      
+    <!-- Inicio do Menu suspenso -->
+    <header class="header">
+      <a href="https://military-merciful-sprint.glitch.me/home/homePage.html"> <img id="logo" src="https://cdn.glitch.global/5896d43e-0f17-4da8-b9ca-506c2e29e326/logo-bg?v=1745273687181" alt="Logo Wayback" ></a>
+      <a id="icon-bars" onclick="if (document.querySelector('.menu').classList.contains('ativado')) 
+                                          {document.querySelector('.menu').classList.add('desativado'); document.querySelector('.menu').classList.remove('ativado'); setTimeout(() => {document.querySelector('.menu').classList.remove('desativado'); document.body.style.overflow = ''}, 350);}
+                                          else {document.body.style.overflow = 'hidden';document.querySelector('.menu').classList.remove('desativado'); document.querySelector('.menu').classList.add('ativado');};
+                                          document.querySelector('.fa-bars').classList.toggle('fa-xmark');"><i class="fa-solid fa-bars"></i></a>
+      <div class="menu">
+        <nav class="opcoes">
+            <a href="https://military-merciful-sprint.glitch.me/procurar/procurar.html" class="fa fa-search" aria-hidden="true">&nbsp;&nbsp;PROCURAR</a>  
+            <a href="https://military-merciful-sprint.glitch.me/publicar/publicar.html" class="fa fa-paper-plane" aria-hidden="true">&nbsp;&nbsp;PUBLICAR</a>
+            <a href="https://military-merciful-sprint.glitch.me/perfil/perfil.html" class="fa fa-user" aria-hidden="true">&nbsp;&nbsp;PERFIL</a>
+        </nav>
+        <a href="#" id="btn_login"><i class="fa-solid fa-lock">&nbsp;&nbsp;Login</i></a>
+      </div>
+    </header>
+    <!-- Fim do Menu suspenso -->
+
+    <main>  
+      <section class="perfil">
+        <div><h1>PERFIL</h1></div>
+          <form action="perfil.html" method="POST" class="form-perfil">    
+          <img src="https://cdn.glitch.global/5896d43e-0f17-4da8-b9ca-506c2e29e326/logo.jpg?v=1745269678975" alt="Foto de Perfil" id="fotoPerfil" class="picture-perfil" >
+                                  
+          <div class="perfil-campos">
+             <label for="nome">Nome</label>
+             <input type="text" id="nome">
+          </div>
+          <div>
+             <input type="hidden" id="usuario">
+          </div>
+            <div>
+             <label for="email">E-mail</label>
+             <input type="email" id="email">
+          </div>
+            <hr><div class="perfil-botoes">
+             <button type="button" class="botaoSalvar" id="btnSalvar" >Salvar Alterações</button>
+             <button type="button" class="botaoTrocar" id="btnTrocar">Trocar senha</button>
+          </div>
+          </form>
+       </section>
+                
+    </main>
+  
+       <section>
+         <h2>Objetos Publicados </h2>
+         <div class="obj-publicado" id="lista"></div>
+
+        <div class="modalEditar" id="editarItem">
+          <div class="modal-content">
+            <header>
+              <span id="fecharModalEditar" class="fecharModal" >&times;</span>  
+              <h3>Editar Objeto</h3><hr><br>
+            </header>
+       <form id="formulario">
+       <input type="hidden" id="id"/>
+       <input type="hidden" id="autor" required/>
+       <input type="hidden" id="ativo" placeholder="ativar" required/>
+       <label for="titulo" style="color:black">Nome do Item: </label>
+       <input type="text" id="titulo" placeholder="Titulo" required />
+         
+       <label for="local" style="color:black">Local Encontrado: </label>
+       <input type="text" id="local" placeholder="Local" required />
+         
+       <label for="tipo" style="color:black">Tipo: </label>
+       <input type="value" id="tipo" placeholder="Tipo" required />
+         
+       <label for="classe" style="color:black">Classe: </label>
+       <input type="value" id="classe" placeholder="Classe" required />
+         
+       <label for="data" style="color:black">Data que foi encontrado: </label>
+       <input type="text" id="data" placeholder="Data" required />
+         
+       <label for="descrição" style="color:black">Descrição do Item: </label>
+       <textarea id="descricao" name="descricao" placeholder="Descreva o item"></textarea>
+         
+       <label for="imagem" style="color:black">Alterar imagem: </label>
+       <input type="file" id="imagem" accept=".png, .jpeg, image/png, image/jpeg"/>
+         
+       <button type="submit">Salvar</button>
+       <button type="reset" id="cancelarModal">Cancelar</button>
+       
+             
+      </form></div></div>
+        
+    <div class="modalSenha" id="modalSenha">
+      <div class="modal-content">
+        <header>
+          <span id="fecharModalSenha" class="fecharModal" >&times;</span>  
+          <h3>Trocar Senha</h3><hr><br>
+        </header>
+      <label for="novaSenha" style="color:black">Digite a nova senha: </label>
+      <input type="text" id="novaSenha" required/><br>
+        
+      <label for="confirmSenha" style="color:black">Confirme a senha: </label>
+      <input type="text" id="confirmSenha" required /><br>
+        
+      <button type="submit" id="salvarSenha">Salvar Senha</button>
+    </div>
+    </div>
+   </section>
+   
+    <footer> 
+       <h4>
+         <nav>
+            <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Facebook</a></li>
+            </ul>
+        </nav>
+         <p class="rodape-direitos">Copyright © 2025 – Todos os Direitos Reservados.</p></h4>
+    </footer>
+
+</body>
+</html>

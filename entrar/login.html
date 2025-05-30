@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Wayback</title>
+  <script type="module" src="login.js" defer></script>
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.glitch.global/8ff313da-1dcc-45d6-8163-d9dda5d323f1/favicon-32x32.png?v=1744744460894">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <script src="validarSenha.js"></script>
+  <script type="module" src="../entrar/auth.js"></script>
+
+    <!-- Inicio do Menu suspenso -->
+    <header class="header">
+      <a href="https://military-merciful-sprint.glitch.me/home/homePage.html"> <img id="logo" src="https://cdn.glitch.global/5896d43e-0f17-4da8-b9ca-506c2e29e326/logo-bg?v=1745273687181" alt="Logo Wayback" ></a>
+      <a id="icon-bars" onclick="if (document.querySelector('.menu').classList.contains('ativado')) 
+                                          {document.querySelector('.menu').classList.add('desativado'); document.querySelector('.menu').classList.remove('ativado'); setTimeout(() => {document.querySelector('.menu').classList.remove('desativado'); document.body.style.overflow = ''}, 350);}
+                                          else {document.body.style.overflow = 'hidden';document.querySelector('.menu').classList.remove('desativado'); document.querySelector('.menu').classList.add('ativado');};
+                                          document.querySelector('.fa-bars').classList.toggle('fa-xmark');"><i class="fa-solid fa-bars"></i></a>
+      <div class="menu">
+        <nav class="opcoes">
+            <a href="https://military-merciful-sprint.glitch.me/procurar/procurar.html" class="fa fa-search" aria-hidden="true">&nbsp;&nbsp;PROCURAR</a>  
+            <a href="https://military-merciful-sprint.glitch.me/publicar/publicar.html" class="fa fa-paper-plane" aria-hidden="true">&nbsp;&nbsp;PUBLICAR</a>
+            <a href="https://military-merciful-sprint.glitch.me/perfil/perfil.html" class="fa fa-user" aria-hidden="true">&nbsp;&nbsp;PERFIL</a>
+        </nav>
+        <a href="#" id="btn_login"><i class="fa-solid fa-lock">&nbsp;&nbsp;Login</i></a>
+      </div>
+    </header>
+    <!-- Fim do Menu suspenso -->
+  <main>
+    <h1>LOGIN</h1>
+    <form onsubmit="event.preventDefault(); alert('Login enviado!');">
+      <div>
+        <label for="email">Email</label><br />
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div>
+        <label for="senha">Senha</label><br />
+        <input type="password" id="senha" name="senha" required />
+      </div>
+      <button type="submit" class="btn-login">Login</button>
+    </form>
+
+    <hr />
+<div class="links" style="justify-content: center;">
+  <a href="https://military-merciful-sprint.glitch.me/entrar/cadastro.html">Cadastre-se</a>
+</div>
+  </main>
+
+  <footer> 
+    <nav>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+      </ul>
+    </nav>
+    <p class="rodape-direitos">Copyright © 2025 – Todos os Direitos Reservados.</p>
+  </footer>
+</body>
+</html>

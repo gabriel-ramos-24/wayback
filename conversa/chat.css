@@ -1,0 +1,408 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0px;
+    padding: 0px;
+
+}
+
+
+
+/* === HEADER === */
+
+.header {
+  color: #38c6c6 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 80px;
+  padding: 5px 30px;
+  background-color: #00aaff;
+  background-size: 200% 200%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  transition: background 0.5s ease;
+}
+
+a:visited {
+  color: #0056b3;
+}
+
+#logo {
+  height: 80px;
+  width: auto;
+}
+
+#icon-bars {
+  display: none;
+  font-size: 24px;
+  color: white;
+  transition: transform 0.3s;
+}
+
+#icon-bars:hover {
+  transform: scale(1.2);
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  column-gap: 50px;
+}
+
+.menu * {
+  font-size: clamp(12px, 1vw, 16px);
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.menu *:hover {
+  color: #ffe100;
+}
+
+#btn_login {
+  background: linear-gradient(45deg, #fffbd5, #b20a2c);
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #0056b3;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#btn_login:hover {
+  transform: translateY(-2px);
+}
+
+.opcoes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  letter-spacing: 2px;
+  column-gap: 40px;
+}
+
+.opcoes > a {
+  position: relative;
+  padding: 10px 0px;
+  text-decoration: none;
+  color: white;
+}
+
+.opcoes > a::after {
+  position: absolute;
+  content: "";
+  background-color: #ffe100;
+  height: 2px;
+  width: 0;
+  bottom: 0;
+}
+
+.opcoes > a:hover::after {
+  animation: navBarAnimation 0.3s linear forwards;
+}
+
+@keyframes navBarAnimation {
+  from {
+    left: 50%;
+    width: 0%;
+  }
+  to {
+    left: 0%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 800px) {
+  .menu {
+    display: none;
+  }
+
+  #icon-bars {
+    display: inline;
+  }
+  
+  .ativado *, .desativado * {
+    color: black !important;
+  }
+  
+  /* estilização do menu ao ser ativado e desativado */
+  .ativado, .desativado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 40px;
+    padding: 5px;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    top: 80px;
+    right: 0;
+    width: 70vw;
+    height: calc(100vh - 80px);
+  }
+  
+  .ativado {
+    animation: deslizarParaEsquerda 0.4s ease-out;
+  }
+  
+  .desativado {
+    animation: deslizarParaDireita 0.4s ease-out forwards;
+  }
+  
+  
+  /* conteiner contendo os link de paginas */
+  .opcoes {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    width: 50%;
+    padding: 5px;
+  }
+
+  /* btn de login para celular */
+  #btn_login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+  }
+}
+
+@keyframes deslizarParaEsquerda {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes deslizarParaDireita {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+
+  }
+}
+  
+/* === HEADER FIM === */
+
+/* === Main === */
+
+/* Espaço principal da tela, exceto header e footer */
+main {
+    margin-top: 80px;
+    background-color: #f0f4f8;
+    width: 100%;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+}
+
+/* Container que agrupa todas as conversas */
+#conteinerPessoas {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Estilo de cada conversa */
+.topicoConversa {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s, opacity 0.3s;
+}
+
+.topicoConversa:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+/* Foto de perfil */
+.topicoConversa > img {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+}
+
+/* Nome da pessoa ou conversa */
+.topicoConversa > p {
+    flex: 1;
+    color: #333;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+/* === Cores condicionais === */
+.conversa-autor {
+    background-color: #fce76c;
+}
+
+.conversa-participante {
+    background-color: #00c3e3;
+    color: white;
+}
+
+.conversa-participante p {
+    color: white;
+}
+
+.conversa {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 4fr 0.5fr;
+    position: fixed;
+    background-color: #f0f4f8;
+    width: 100%;
+    height: calc(100dvh - 80px);
+    left: 0px;
+    top: 80px;
+    z-index: 100;
+    opacity: 1 !important;
+}
+
+/* 🔵 Topo */
+.topoM {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 20px;
+    background-color: #0056b3;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.topoM > i {
+    color: #38c6c6;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.topoM > i:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.topoM > p {
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+
+/* 🔵 Corpo das mensagens */
+.corpoM {
+    flex: 1;
+    padding: 15px;
+    padding-bottom: 80px; /* espaço para campo fixo */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #f0f4f8;
+    box-sizing: border-box;
+}
+
+.msgAutor {
+    align-self: flex-end;
+    background-color: #0056b3;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 20px 20px 0 20px;
+    max-width: 75%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    word-break: break-word;
+    font-size: 15px;
+}
+
+.msgParticipante {
+    align-self: flex-start;
+    background-color: #ffffff;
+    color: #0056b3;
+    padding: 10px 14px;
+    border-radius: 20px 20px 20px 0;
+    max-width: 75%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    word-break: break-word;
+    font-size: 15px;
+}
+
+
+/* 🔵 Campo de digitação fixo */
+.digitacaoM {
+    position: fixed;
+    bottom: 0;
+    left: 010;
+    right: 0;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+    padding: 10px 20%;
+    background-color: #0056b3;
+    border-top: 2px solid #38c6c6;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.digitacaoM input {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px;
+    background-color: white;
+    color: #0056b3;
+    outline: none;
+    font-size: 16px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.digitacaoM input::placeholder {
+    color: #a0a0a0;
+}
+
+.digitacaoM i {
+    font-size: 24px;
+    color: #38c6c6;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.digitacaoM i:hover {
+    color: white;
+}
+

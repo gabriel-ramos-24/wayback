@@ -1,0 +1,54 @@
+body {  
+    margin: 0;  
+    padding: 0;  
+    font-family: Arial, sans-serif;  
+    background-image: url('https://cdn.glitch.global/8ff313da-1dcc-45d6-8163-d9dda5d323f1/fundoErro.jpg?v=1744990037245'); /* Imagem de fundo */  
+    background-size: cover; /* Cobre todo o fundo */  
+    background-position: center; /* Centraliza a imagem */  
+    color: #333333;  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    height: 100vh; /* Ocupa a altura total da janela */  
+    text-align: center;  
+}  
+
+.container {  
+    background: transparent;
+    backdrop-filter: blur(10px);
+    padding: 2rem;  
+    border-radius: 8px;  
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  
+    margin: 20px;
+}  
+
+.error-code {  
+    font-size: 5rem; /* Tamanho grande para o código de erro */  
+    margin: 0;  
+    color: #e74c3c; /* Cor vermelha para destaque */  
+}  
+
+.error-message {  
+    font-size: 2rem;  
+    margin: 0.5rem 0;  
+}  
+
+.suggestion {  
+    margin: 1rem 0;  
+    font-size: 1.2rem;  
+}  
+
+.home-link {  
+    display: inline-block;  
+    margin-top: 1rem;  
+    padding: 0.5rem 1.5rem;  
+    text-decoration: none;  
+    background-color: #3498db; /* Cor do botão */  
+    color: white;  
+    border-radius: 4px;  
+    transition: background-color 0.3s;  
+}  
+
+.home-link:hover {  
+    background-color: #2980b9; /* Fundo escurecido ao passar o mouse */  
+}

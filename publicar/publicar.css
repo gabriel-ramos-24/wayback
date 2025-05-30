@@ -1,0 +1,349 @@
+  * {
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin-top: 80px;
+      background: linear-gradient(to bottom, #fce76c, #00c3e3);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+ /* === HEADER === */
+
+.header {
+  color: #38c6c6 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 80px;
+  padding: 5px 30px;
+  background-color: #00aaff;
+  background-size: 200% 200%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  transition: background 0.5s ease;
+}
+
+a:visited {
+  color: #0056b3;
+}
+
+#logo {
+  height: 80px;
+  width: auto;
+}
+
+#icon-bars {
+  display: none;
+  font-size: 24px;
+  color: white;
+  transition: transform 0.3s;
+}
+
+#icon-bars:hover {
+  transform: scale(1.2);
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  column-gap: 50px;
+}
+
+.menu * {
+  font-size: clamp(12px, 1vw, 16px);
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.menu *:hover {
+  color: #ffe100;
+}
+
+#btn_login {
+  background: linear-gradient(45deg, #fffbd5, #b20a2c);
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #0056b3;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#btn_login:hover {
+  transform: translateY(-2px);
+}
+
+.opcoes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  letter-spacing: 2px;
+  column-gap: 40px;
+}
+
+.opcoes > a {
+  position: relative;
+  padding: 10px 0px;
+  text-decoration: none;
+  color: white;
+}
+
+.opcoes > a::after {
+  position: absolute;
+  content: "";
+  background-color: #ffe100;
+  height: 2px;
+  width: 0;
+  bottom: 0;
+}
+
+.opcoes > a:hover::after {
+  animation: navBarAnimation 0.3s linear forwards;
+}
+
+@keyframes navBarAnimation {
+  from {
+    left: 50%;
+    width: 0%;
+  }
+  to {
+    left: 0%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 800px) {
+  .menu {
+    display: none;
+  }
+
+  #icon-bars {
+    display: inline;
+  }
+  
+  .ativado *, .desativado * {
+    color: black !important;
+  }
+  
+  /* estilização do menu ao ser ativado e desativado */
+  .ativado, .desativado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 40px;
+    padding: 5px;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    top: 80px;
+    right: 0;
+    width: 70vw;
+    height: calc(100vh - 80px);
+  }
+  
+  .ativado {
+    animation: deslizarParaEsquerda 0.4s ease-out;
+  }
+  
+  .desativado {
+    animation: deslizarParaDireita 0.4s ease-out forwards;
+  }
+  
+  
+  /* conteiner contendo os link de paginas */
+  .opcoes {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    width: 50%;
+    padding: 5px;
+  }
+
+  /* btn de login para celular */
+  #btn_login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+  }
+}
+
+@keyframes deslizarParaEsquerda {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes deslizarParaDireita {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+
+  }
+}
+  
+/* === HEADER FIM === */
+
+    main {
+      width: 100%;
+      max-width: 600px;
+      margin-top: 30px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h2 {
+      color: white;
+      font-size: 42px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+      color: black;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select,
+    textarea,
+    input[type="file"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+   input[list] {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: white;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+}
+
+}
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    button {
+      flex: 1;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .cancelar {
+      background-color: #eee;
+      color: black;
+    }
+
+    .publicar {
+      background-color: #8ee3e3;
+      color: black;
+    }
+
+    .cancelar:hover {
+      background-color: #ccc;
+    }
+
+    .publicar:hover {
+      background-color: #00a5c7;
+    }
+
+    /*RODAPÉ */
+    footer {
+    width: 100%;
+    background: transparent;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 12px;
+    color: #000000;
+    margin-top: 40px;
+    }
+
+    footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    }
+
+    footer li {
+    display: inline-block;
+    margin: 0 10px;
+    }
+
+    footer a {
+    color: #000000;
+    text-decoration: none;
+    }
+
+    .rodape-direitos {
+    margin-top: 10px;
+    }
+
+   @media screen and (max-width: 920px) {
+      nav {
+        flex-direction: column;
+      }
+      .buttons {
+        flex-direction: column;
+      }
+    }

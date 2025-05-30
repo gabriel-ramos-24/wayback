@@ -1,0 +1,54 @@
+body {
+    background: linear-gradient(to bottom, #fce76c, #00c3e3) fixed;
+}
+
+#btn-chat {
+    background-color: #2a6ef2;
+    color: white;
+    border: none !important;
+    
+}
+
+
+@media (min-width: 801px) {
+
+    article > #imagem {
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .info {
+        background-color: #b7e0f8;
+        border-radius: 20px;
+        padding: 20px;
+    }
+
+    article > .botoes * {
+        color: #2a6ef2;
+        transition: all 0.15s;
+    }
+
+    article > .botoes > *:hover {
+        background-color: #b7e0f8;
+        cursor: pointer;
+        scale: 1.05;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    article > .botoes > *:active {
+        scale: 1.0;
+        box-shadow: none;
+    }
+
+    #btn-chat:hover {
+        scale: 1.05;
+        cursor: pointer;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+        transition: all 0.15s;
+    }
+
+    #btn-chat:active {
+        scale: 1.0;
+        box-shadow: none;
+    }
+    
+}

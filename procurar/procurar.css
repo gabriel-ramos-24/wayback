@@ -1,0 +1,418 @@
+
+* {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(to bottom, #fce76c, #00c3e3) no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* === HEADER === */
+
+.header {
+  color: #38c6c6 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 80px;
+  padding: 5px 30px;
+  background-color: #00aaff;
+  background-size: 200% 200%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  transition: background 0.5s ease;
+}
+
+a:visited {
+  color: #0056b3;
+}
+
+#logo {
+  height: 80px;
+  width: auto;
+}
+
+#icon-bars {
+  display: none;
+  font-size: 24px;
+  color: white;
+  transition: transform 0.3s;
+}
+
+#icon-bars:hover {
+  transform: scale(1.2);
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  column-gap: 50px;
+}
+
+.menu * {
+  font-size: clamp(12px, 1vw, 16px);
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.menu *:hover {
+  color: #ffe100;
+}
+
+#btn_login {
+  background: linear-gradient(45deg, #fffbd5, #b20a2c);
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #0056b3;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#btn_login:hover {
+  transform: translateY(-2px);
+}
+
+.opcoes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  letter-spacing: 2px;
+  column-gap: 40px;
+}
+
+.opcoes > a {
+  position: relative;
+  padding: 10px 0px;
+  text-decoration: none;
+  color: white;
+}
+
+.opcoes > a::after {
+  position: absolute;
+  content: "";
+  background-color: #ffe100;
+  height: 2px;
+  width: 0;
+  bottom: 0;
+}
+
+.opcoes > a:hover::after {
+  animation: navBarAnimation 0.3s linear forwards;
+}
+
+@keyframes navBarAnimation {
+  from {
+    left: 50%;
+    width: 0%;
+  }
+  to {
+    left: 0%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 800px) {
+  .menu {
+    display: none;
+  }
+
+  #icon-bars {
+    display: inline;
+  }
+  
+  .ativado *, .desativado * {
+    color: black !important;
+  }
+  
+  /* estilização do menu ao ser ativado e desativado */
+  .ativado, .desativado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 40px;
+    padding: 5px;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    top: 80px;
+    right: 0;
+    width: 70vw;
+    height: calc(100vh - 80px);
+  }
+  
+  .ativado {
+    animation: deslizarParaEsquerda 0.4s ease-out;
+  }
+  
+  .desativado {
+    animation: deslizarParaDireita 0.4s ease-out forwards;
+  }
+  
+  
+  /* conteiner contendo os link de paginas */
+  .opcoes {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    width: 50%;
+    padding: 5px;
+  }
+
+  /* btn de login para celular */
+  #btn_login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+  }
+}
+
+@keyframes deslizarParaEsquerda {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes deslizarParaDireita {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+
+  }
+}
+  
+/* === HEADER FIM === */
+
+main {
+  margin-top: 100px;
+}
+
+main > form {
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 30px;
+  padding: 40px;
+  border-radius: 12px;
+}
+
+main > form * {
+  border: 2px solid transparent;
+  border-radius: 2px;
+  padding: 5px;
+  width: 80vw;
+  max-width: 400px;
+}
+
+@media (max-width: 600px) {
+  main > form * {
+    max-width: 250px;
+  }
+}
+
+main > form > *:hover:not(h2, div) {
+  border: 2px solid blue;
+}
+
+main > form > *:focus {
+  outline: none;
+  border: none;
+  box-shadow:
+    2px  2px 0px rgba(13, 146, 247, 0.78),
+   -2px  2px 0px rgba(13, 146, 247, 0.78),
+    2px -2px 0px rgba(13, 146, 247, 0.78),
+   -2px -2px 0px rgba(13, 146, 247, 0.78);
+}
+
+select {
+  cursor: pointer;
+}
+
+.meusRadios * {
+  display: flex;
+  font-size: 12px;
+  column-gap: 20px;
+}
+
+.meus_btns {
+  border: none;
+}
+
+.meus_btns:hover {
+  border: none;
+}
+
+.meus_btns > * {
+  border: none;
+  margin: 5px -5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.meus_btns *:hover {
+  transform: scale(1.05);
+}
+
+.meus_btns *:active {
+  transform: scale(1.0);
+}
+
+h2, h4 {
+  color: #ffffff;
+  text-align: center;
+}
+
+#tituloObjetoPostados {
+  margin-top: 80px;
+}
+
+section {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 960px;
+}
+
+.painelItem {
+  background-color: white;
+  width: 300px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.imagensItens {
+  width: 280px;
+  height: 220px;
+  margin: 20px 0px;
+  border-radius: 5px;
+}
+
+.meusLinks {
+  background-color: #00c3e3;
+  color: wheat;
+  border: none;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.meusLinks:visited {
+  color: wheat;
+}
+
+.meusLinks:hover {
+  transform: scale(1.03);
+}
+
+.meusLinks:active {
+  transform: scale(1.0);
+}
+
+
+/*RODAPÉ */
+footer {
+  width: 100%;
+  background: transparent;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 12px;
+  color: #000000;
+  margin-top: 40px;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+footer li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+footer a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.rodape-direitos {
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 920px) {
+  
+main {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  input[type="text"],
+  select,
+  input[type="date"],
+  button {
+    width: 100%;
+  }
+
+  .items-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+.obj-publicado {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.publicado {
+  width: 90%;
+  align-items: center;
+}
+
+  footer {
+    font-size: 10px;
+    padding: 10px 0;
+  }
+
+}

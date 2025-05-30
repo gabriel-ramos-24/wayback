@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publicar Item Encontrado | Wayback</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.glitch.global/8ff313da-1dcc-45d6-8163-d9dda5d323f1/favicon-32x32.png?v=1744744460894">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Fonte Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet" />
+ <link rel="stylesheet" href="publicar.css">
+  <script type="module" src="publicar.js"></script>
+  
+</head>
+
+<body>
+
+    <!-- Inicio do Menu suspenso -->
+  <script type="module" src="../entrar/auth.js"></script>
+    <header class="header">
+      <a href="https://military-merciful-sprint.glitch.me/home/homePage.html"> <img id="logo" src="https://cdn.glitch.global/5896d43e-0f17-4da8-b9ca-506c2e29e326/logo-bg?v=1745273687181" alt="Logo Wayback" ></a>
+      <a id="icon-bars" onclick="if (document.querySelector('.menu').classList.contains('ativado')) 
+                                          {document.querySelector('.menu').classList.add('desativado'); document.querySelector('.menu').classList.remove('ativado'); setTimeout(() => {document.querySelector('.menu').classList.remove('desativado'); document.body.style.overflow = ''}, 350);}
+                                          else {document.body.style.overflow = 'hidden';document.querySelector('.menu').classList.remove('desativado'); document.querySelector('.menu').classList.add('ativado');};
+                                          document.querySelector('.fa-bars').classList.toggle('fa-xmark');"><i class="fa-solid fa-bars"></i></a>
+      <div class="menu">
+        <nav class="opcoes">
+            <a href="https://military-merciful-sprint.glitch.me/procurar/procurar.html" class="fa fa-search" aria-hidden="true">&nbsp;&nbsp;PROCURAR</a>  
+            <a href="https://military-merciful-sprint.glitch.me/publicar/publicar.html" class="fa fa-paper-plane" aria-hidden="true">&nbsp;&nbsp;PUBLICAR</a>
+            <a href="https://military-merciful-sprint.glitch.me/perfil/perfil.html" class="fa fa-user" aria-hidden="true">&nbsp;&nbsp;PERFIL</a>
+        </nav>
+        <a href="#" id="btn_login"><i class="fa-solid fa-lock">&nbsp;&nbsp;Login</i></a>
+      </div>
+    </header>
+    <!-- Fim do Menu suspenso -->
+
+  <!-- Inicio do Menu de Opções -->
+  <main>
+    <h2>PUBLICAR ITEM ENCONTRADO</h2>
+    <form id="publicarForm">
+      <div>
+        <label for="nome">Nome do item:</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite o nome do item">
+      </div>
+
+      <div>
+       <div>
+       <label for="localizacao">Localização que foi encontrado:</label>
+         <select id="localizacao" name="localizacao">
+          <option value="">Selecione</option>
+          <option value="Betim-MG">Betim-MG</option>
+          <option value="Belo Horizonte-MG">Belo Horizonte-MG</option>
+          <option value="Contagem-MG">Contagem-MG</option>
+          <option value="Santa Luzia-MG">Santa Luzia-MG</option>
+          <option value="Juiz de Fora-MG">Juiz de Fora-MG</option>
+          <option value="Uberaba-MG">Uberaba-MG</option>
+          <option value="Uberlândia-MG">Uberlândia-MG</option>
+          <option value="Capitólio-MG">Capitólio-MG</option>
+          <option value="Conselheiro Lafaiete-MG">Conselheiro Lafaiete-MG</option>
+          <option value="Esmeraldas-MG">Esmeraldas-MG</option>
+           
+  </select>
+</div>
+
+      </div>
+      
+          
+      <div>
+        <label for="classe">Classe:</label>
+        <select id="classe" name="classe">
+          <option value="">Selecione</option>
+          <option value="Documento">Documento</option>
+          <option value="Roupa">Roupa</option>
+          <option value="Acessório Pessoal">Acessório Pessoal</option>
+          <option value="Brinquedo">Brinquedo</option>
+          <option value="Eletrônico">Eletrônico</option>
+          <option value="Instrumento Musical">Instrumento Musical</option>
+          <option value="Esportivo">Esportivo</option>
+          <option value="Ferramenta">Ferramenta</option>
+          <option value="Material Escolar">Material Escolar</option>
+          <option value="Item Doméstico">Item Doméstico</option>
+          <option value="Outro">Outro</option>
+        </select>
+      </div>
+      
+      <div>
+        <label for="tipo">Tipo:</label>
+        <select id="tipo" name="tipo">
+          <option value="">Selecione</option>
+          <option value="Carteira de Trabalho">Carteira de Trabalho</option>
+          <option value="Boné">Boné</option>
+          <option value="Chaveiro">Chaveiro</option>
+          <option value="Boneco">Boneco</option>
+          <option value="Celular">Celular</option>
+          <option value="Violão">Violão</option>
+          <option value="Bola de Futebol">Bola de Futebol</option>
+          <option value="Furadeira">Furadeira</option>
+          <option value="Mochila">Mochila</option>
+          <option value="Guarda-Chuva">Guarda-Chuva</option>
+          <option value="Outro">Outro</option>
+         </select>
+      </div>
+          
+      <div>
+        <label for="data">Data que foi encontrado:</label>
+        <input type="date" id="data" name="data">
+      </div>
+
+      <div>
+        <label for="descricao">Descrição do item:</label>
+        <textarea id="descricao" name="descricao" placeholder="Descreva o item"></textarea>
+      </div>
+
+      <div>
+        <label for="foto">Carregar foto:</label>
+        <input type="file" id="foto" name="foto">
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="cancelar">Cancelar</button>
+        <button type="submit" class="publicar">Publicar</button>
+      </div>     
+  <!-- Campo oculto para o valor de "ativo" -->
+      <input type="hidden" id="ativo" value="sim">
+    </form>
+  </main>
+ 
+  <!-- Fim do Menu de Opções-->
+  
+  <footer> 
+        <nav>
+            <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Facebook</a></li>
+            </ul>
+        </nav>
+            <p class="rodape-direitos">Copyright © 2025 – Todos os Direitos Reservados.</p>
+    </footer>
+</body>
+</html>
